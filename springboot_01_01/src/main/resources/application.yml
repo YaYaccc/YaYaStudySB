@@ -1,6 +1,17 @@
-mybatis:
+#mybatis:
+#  type-aliases-package: com.yaya.domain
+#  mapper-locations: classpath*:com/yaya/mapper/*Mapper.xml
+
+mybatis-plus:
   type-aliases-package: com.yaya.domain
   mapper-locations: classpath*:com/yaya/mapper/*Mapper.xml
+  type-enums-package: com.yaya.enums
+
+logging:
+  # 设置logback.xml位置
+  #  config: classpath:log/logback.xml
+  # 设置log4j.properties位置
+  config: classpath:log4j.properties
 
 name: YaYa
 
@@ -11,7 +22,7 @@ users:
 
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://119.29.197.52:3306/mp?useSSL=false
     username: YaYa
     password: YaYaisGood.
