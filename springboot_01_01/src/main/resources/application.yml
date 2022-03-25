@@ -1,1 +1,18 @@
+mybatis:
+  type-aliases-package: com.yaya.domain
+  mapper-locations: classpath*:com/yaya/mapper/*Mapper.xml
+
+name: YaYa
+
+#  typeAliases
+users:
+  name: YaYa
+  love: Anqi
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://119.29.197.52:3306/mp?useSSL=false
+    username: YaYa
+    password: YaYaisGood.
 
