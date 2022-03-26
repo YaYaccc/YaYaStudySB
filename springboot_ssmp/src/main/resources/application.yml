@@ -16,6 +16,9 @@ logging:
 name: YaYa
 
 #  typeAliases
+
+
+
 users:
   name: YaYa
   love: Anqi
@@ -27,4 +30,5 @@ spring:
       url: jdbc:mysql://119.29.197.52:3306/mp?useSSL=false
       username: YaYa
       password: YaYaisGood.
-
+server:
+  port: 80

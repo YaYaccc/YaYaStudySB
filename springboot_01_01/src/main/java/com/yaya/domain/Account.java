@@ -1,9 +1,7 @@
 package com.yaya.domain;
 
 
-import com.baomidou.mybatisplus.annotation.EnumValue;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.Version;
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.yaya.enums.SexEnum;
 import lombok.AllArgsConstructor;
@@ -16,13 +14,17 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
-public class Account extends Model<Account> {
+//model实现ac 但是觉得不好用
+//public class Account extends Model<Account> {
+public class Account{
     private String name;
-    private String money;
-    private int id;
+    private Double money;
+    @TableId
+    private Integer id;
     @Version
-    private int version;
+    private Integer version = 1;
+    @TableLogic
     @TableField(select = false)
-    private int deleted;
+    private Integer deleted;
     private SexEnum sex;
 }

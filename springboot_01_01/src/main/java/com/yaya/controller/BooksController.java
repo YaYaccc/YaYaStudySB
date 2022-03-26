@@ -20,7 +20,6 @@ public class BooksController {
     private Account account;
 
 
-
     @GetMapping("/hello")
     public String getHello() {
         System.out.println("springboot is running");
