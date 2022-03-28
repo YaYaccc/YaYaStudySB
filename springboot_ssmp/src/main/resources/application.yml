@@ -6,22 +6,24 @@ mybatis-plus:
   type-aliases-package: com.yaya.domain
   mapper-locations: classpath*:com/yaya/mapper/*Mapper.xml
   type-enums-package: com.yaya.enums
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 logging:
   # 设置logback.xml位置
   #  config: classpath:log/logback.xml
   # 设置log4j.properties位置
   config: classpath:log4j.properties
+  level:
+    com.yaya: warn
 
 name: YaYa
 
 #  typeAliases
 
-
-
-users:
-  name: YaYa
-  love: Anqi
 
 spring:
   datasource:
