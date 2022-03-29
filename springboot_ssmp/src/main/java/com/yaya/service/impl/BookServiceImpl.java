@@ -34,12 +34,22 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
         return bookMapper.updateById(book) > 0;
     }
 
+
+    @Override
+    public IPage<Book> getPage(int currentPage, int pageSize, Book book) {
+        Page<Book> page = new Page<>(currentPage, pageSize);
+        LambdaQueryWrapper<Book> wrapper = new LambdaQueryWrapper<>();
+        wrapper.like(book.getCountry() != null, Book::getCountry, book.getCountry());
+        wrapper.like(book.getName() != null, Book::getName, book.getName());
+        wrapper.like(book.getDescription() != null, Book::getDescription, book.getDescription());
+        bookMapper.selectPage(page, wrapper);
+        return page;
+    }
+
     @Override
     public IPage<Book> getPage(int currentPage, int pageSize) {
         Page<Book> page = new Page<>(currentPage, pageSize);
-        bookMapper.selectPage(page,null);
-        Page<Book> bookPage = page.setCurrent(2);
-        System.out.println(bookPage);
+        bookMapper.selectPage(page, null);
         return page;
     }
 

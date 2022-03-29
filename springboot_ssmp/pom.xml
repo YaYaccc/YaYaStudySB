@@ -72,12 +72,23 @@
 			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<excludes>
+					<exclude>static/plugins/elementui/fonts/**</exclude>
+				</excludes>
 				<includes>
 					<include>**/*.xml</include>
 					<include>**/*.properties</include>
 					<include>**/*.yml</include>
+					<include>static/**</include>
 				</includes>
-				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>static/plugins/elementui/fonts/**</include>
+				</includes>
 			</resource>
 		</resources>
 		<plugins>
