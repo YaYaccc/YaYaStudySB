@@ -33,4 +33,4 @@ spring:
       username: YaYa
       password: YaYaisGood.
 server:
-  port: 80
+  port: 8080
