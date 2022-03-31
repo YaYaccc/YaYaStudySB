@@ -1,0 +1,5 @@
+servers:
+  ipAddress: 192.168.1.1
+  port: 1000
+  timeout: -1
+  serverTimeOut: 10
