@@ -5,12 +5,15 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.yaya.controller.utils.R;
 import com.yaya.domain.Book;
 import com.yaya.service.BookService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
+
+@Slf4j
 @RestController
 @RequestMapping("/books")
 public class BookController {
@@ -47,6 +50,8 @@ public class BookController {
 
     @GetMapping("{currentPage}/{pageSize}")
     R getPage(@PathVariable Integer currentPage, @PathVariable Integer pageSize,Book book) {
+        System.out.println("Test");
+        System.out.println("Test");
         IPage<Book> page = bookService.getPage(currentPage, pageSize,book);
         if (currentPage > page.getPages())
             page = bookService.getPage(1, pageSize,book);

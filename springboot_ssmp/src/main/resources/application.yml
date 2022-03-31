@@ -9,6 +9,7 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
+#  数据结果在控制台显示
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
@@ -16,9 +17,9 @@ logging:
   # 设置logback.xml位置
   #  config: classpath:log/logback.xml
   # 设置log4j.properties位置
-  config: classpath:log4j.properties
-  level:
-    com.yaya: warn
+#  config: classpath:log4j.properties
+#  level:
+#    com.yaya: warn
 
 name: YaYa
 
