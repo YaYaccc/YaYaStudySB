@@ -1,0 +1,5 @@
+spring:
+  redis:
+    host: 119.29.197.52
+    password: ShangZi.
+    port: 6399
