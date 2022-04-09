@@ -8,16 +8,30 @@ import com.yaya.domain.Book;
 import com.yaya.mapper.BookMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.ResultMatcher;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.result.StatusResultMatchers;
 
 import java.util.List;
 
-@SpringBootTest
+@SpringBootTest()
+@AutoConfigureMockMvc
 class SSMPApplicationTests {
 
 
     @Autowired
     private BookMapper bookMapper;
+
+
+    // 在test模拟mvc的运行 有 @AutoConfigureMockMvc 就能用
+    @Autowired
+    private MockMvc mvc;
 
     @Test
     void contextLoads() {
@@ -32,6 +46,16 @@ class SSMPApplicationTests {
         bookMapper.insert(book);
     }
 
+
+    @Test
+    void mvcTest() throws Exception {
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/books1");
+        ResultActions perform = mvc.perform(builder);
+        StatusResultMatchers status = MockMvcResultMatchers.status();
+        ResultMatcher ok = status.isOk();
+        perform.andExpect(ok);
+        System.out.println(perform);
+    }
 
     @Test
     void testPage() {

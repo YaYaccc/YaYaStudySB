@@ -8,12 +8,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class DemoApplicationTests {
 
-	@Autowired
-	private ConfigTest configTest;
+    @Autowired
+    private ConfigTest configTest;
 
-	@Test
-	void contextLoads() {
-		System.out.println(configTest);
-	}
+    @Test
+    void contextLoads() {
+        System.out.println(configTest);
+    }
 
 }
