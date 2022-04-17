@@ -1,6 +1,7 @@
 package com.yaya;
 
 
+import com.yaya.pojo.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.data.redis.core.ValueOperations;
 class SpringbootRediusApplicationTests {
 
     @Autowired
-    private StringRedisTemplate redisTemplate;
+    private RedisTemplate redisTemplate;
     private ValueOperations valueOperations;
 
 
@@ -23,17 +24,15 @@ class SpringbootRediusApplicationTests {
     }
 
 
-    @Test
-    void set() {
-		valueOperations.set("name","丫丫");
-    }
+//    @Test
+//    void set() {
+//		valueOperations.set("name","丫丫");
+//    }
 
     @Test
     void get(){
-        ValueOperations<String, String> ops = redisTemplate.opsForValue();
-        //ops.set("name","丫丫");
-        String name = ops.get("name");
-        System.out.println(name);
+        User user = new User("丫丫",18);
+        redisTemplate.opsForValue().set("user",user);
+        System.out.println(redisTemplate.opsForValue().get("user"));
     }
-
 }
